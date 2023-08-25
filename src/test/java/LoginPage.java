@@ -30,6 +30,6 @@ public class LoginPage extends BasePage{
         return new MainPage(driver);
     }
     public void open() {
-        driver.get("https://www.facebook.com/");
+        driver.get("https://www.instagram.com/");
     }
 }
