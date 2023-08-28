@@ -11,10 +11,10 @@ public class BaseTest {
 
     @BeforeMethod
     public void startUp() {
-        username = "infokolesnik@gmail.com";
-        password = "Eyecontact2021!";
+        username = "Alex_kolesnyk_";
+        password = "Family2022!";
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\alexander.anderson\\IdeaProjects\\instagram\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\alexander.anderson\\IdeaProjects\\InstaProject\\chromedriver.exe");
 
         // Set Chrome options to disable notifications
         ChromeOptions options = new ChromeOptions();
