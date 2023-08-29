@@ -36,7 +36,7 @@ public class MainPage extends BasePage {
     }
 
     private List<WebElement> getLikeButtons() {
-        return driver.findElements(By.xpath("//span[text()='Like']"));
+        return driver.findElements(By.xpath("//span[@class='xp7jhwk']"));
     }
 
     public void scrollAndLikePosts() {
