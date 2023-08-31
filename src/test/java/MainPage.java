@@ -39,6 +39,24 @@ public class MainPage extends BasePage {
         return driver.findElements(By.xpath("//span[@class='xp7jhwk']"));
     }
 
+    private WebElement getInstagramButton() {
+        By instagramButtonBy = By.xpath("//*[@aria-label='Instagram']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(instagramButtonBy));
+    }
+
+    public void clickInstagramButton() {
+        getInstagramButton().click();
+    }
+
+    private WebElement getHomeButton() {
+        By homeButtonBy = By.xpath("//*[@aria-label='Home']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(homeButtonBy));
+    }
+
+    public void clickHomeButton() {
+        getHomeButton().click();
+    }
+
     public void scrollAndLikePosts() {
         int initialLikeCount = 0;
         int maxScrolls = 10; // Set the maximum number of scrolls
