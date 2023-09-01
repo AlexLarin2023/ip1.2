@@ -7,34 +7,93 @@ public class Stories extends BasePage {
     public Stories(WebDriver driver) {
         super(driver);
     }
-    private WebElement getInstagramButton() {
-        By instagramButtonBy = By.xpath("//*[@aria-label='Instagram']");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(instagramButtonBy));
+    private WebElement getCloseButton() {
+        By closeButtonBy = By.xpath("//*[@aria-label='Close']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(closeButtonBy));
     }
 
-    public void clickInstagramButton() {
-        getInstagramButton().click();
-    }
-    // Get the first story element
-    private WebElement getFirstStory() {
-        By firstStoryBy = By.xpath("//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o']");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(firstStoryBy));
+    public void clickCloseButton() {
+        getCloseButton().click();
     }
 
-    // Click the first story
-    public void clickFirstStory() {
-        WebElement firstStory = getFirstStory();
-        if (firstStory.isDisplayed()) {
-            firstStory.click();
+
+
+    // Get the second story element
+    private WebElement getSecondStory() {
+        By secondStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[2]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(secondStoryBy));
+    }
+
+    // Click the second story
+    public void clickSecondStory() {
+        WebElement secondStory = getSecondStory();
+        if (secondStory.isDisplayed()) {
+            secondStory.click();
             // You can add waits here if necessary
         } else {
-            System.out.println("First story button not found.");
+            System.out.println("Second story button not found.");
         }
     }
 
+
+    // Get the Third story element
+    private WebElement getThirdStory() {
+        By thirdStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[3]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(thirdStoryBy));
+    }
+
+    // Click the Third story
+    public void clickThirdStory() {
+        WebElement thirdStory = getThirdStory();
+        if (thirdStory.isDisplayed()) {
+            thirdStory.click();
+            // You can add waits here if necessary
+        } else {
+            System.out.println("Third story button not found.");
+        }
+    }
+
+
+
+    // Get the fourth story element
+    private WebElement getFourthStory() {
+        By fourthStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[4]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(fourthStoryBy));
+    }
+
+    // Click the fourth story
+    public void clickFourthStory() {
+        WebElement fourthStory = getFourthStory();
+        if (fourthStory.isDisplayed()) {
+            fourthStory.click();
+            // You can add waits here if necessary
+        } else {
+            System.out.println("Fourth story button not found.");
+        }
+    }
+
+
+    // Get the fifth story element
+    private WebElement getFifthStory() {
+        By fifthStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[5]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(fifthStoryBy));
+    }
+
+    // Click the fifth story
+    public void clickFifthStory() {
+        WebElement fifthStory = getFifthStory();
+        if (fifthStory.isDisplayed()) {
+            fifthStory.click();
+            // You can add waits here if necessary
+        } else {
+            System.out.println("Fifth story button not found.");
+        }
+    }
+
+
     // Get the like button element of a story
     private WebElement getLikeButton() {
-        By likeButtonBy = By.xpath("(//*[@class='x6s0dn4 x78zum5 xdt5ytf xl56j7k'])[4]");
+        By likeButtonBy = By.xpath("//div[@class='_abx4']");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(likeButtonBy));
     }
 
@@ -45,7 +104,7 @@ public class Stories extends BasePage {
             likeButton.click();
             // Wait for a short time after clicking the like button
             try {
-                Thread.sleep(10000); // Adjust sleep time as needed
+                Thread.sleep(5000); // Adjust sleep time as needed
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

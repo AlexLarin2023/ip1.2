@@ -34,23 +34,50 @@ public class InstaProject extends BaseTest {
         // Click the "Save Your Login Info" button on the main page
         mainPage.clickSaveYourLoginInfo();
 
-        int repeatCount = 5;
-        // Repeat the scenario for the specified number of times
-        for (int i = 0; i < repeatCount; i++) {
             // Create an instance of the Stories page (only once per loop iteration)
             Stories stories = new Stories(driver);
 
-            // Click the first story on the Stories page
-            stories.clickFirstStory();
+
+            // Click the Second story on the Stories page
+            stories.clickSecondStory();
 
             // Like the current story
             stories.clickLikeButton();
 
             // Click the "Instagram" button on the main page
-            stories.clickInstagramButton();
+            stories.clickCloseButton();
 
-            // Click the "Home" button on the main page
-            mainPage.clickHomeButton();
+
+        // Click the third story on the Stories page
+        stories.clickThirdStory();
+
+        // Like the current story
+        stories.clickLikeButton();
+
+        // Click the "Instagram" button on the main page
+        stories.clickCloseButton();
+
+
+        // Click the fourth story on the Stories page
+        stories.clickFourthStory();
+
+        // Like the current story
+        stories.clickLikeButton();
+
+        // Click the "Instagram" button on the main page
+        stories.clickCloseButton();
+
+
+        // Click the fifth story on the Stories page
+        stories.clickFifthStory();
+
+        // Like the current story
+        stories.clickLikeButton();
+
+        // Click the "Instagram" button on the main page
+        stories.clickCloseButton();
+
+
         }
     }
-}
+
