@@ -1,7 +1,11 @@
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
 import java.util.List;
 
 public class MainPage extends BasePage {
@@ -10,25 +14,40 @@ public class MainPage extends BasePage {
     }
 
     private WebElement getSaveYourLoginInfoButton() {
-        String loginInfoXPath = "//div[@class='x1i10hfl xjqpnuy xa49m3k xqeqjp1 x2hbi6w xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x1lku1pv x1a2a7pz x6s0dn4 xjyslct x1ejq31n xd10rxx x1sy0etr x17r0tee x9f619 x1ypdohk x1i0vuye x1f6kntn xwhw2v2 xl56j7k x17ydfre x2b8uid xlyipyv x87ps6o x14atkfc xcdnw81 xjbqb8w xm3z3ea x1x8b98j x131883w x16mih1h x972fbf xcfux6l x1qhh985 xm0m39n xt0psk2 xt7dq6l xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x1n5bzlp x173jzuc x1yc6y37']";
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginInfoXPath)));
+        By loginInfoXPath = By.xpath("//button[text()='Save Your Login Info']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(loginInfoXPath));
     }
+
 
     // Click the "Save Your Login Info" button
     public void clickSaveYourLoginInfo() {
         getSaveYourLoginInfoButton().click();
     }
 
+
+
+    // Like a post
     private List<WebElement> getLikeButtons() {
         return driver.findElements(By.xpath("//span[@class='xp7jhwk']"));
     }
-    private WebElement getHomeButton() {
-        By homeButtonBy = By.xpath("//*[@aria-label='Home']");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(homeButtonBy));
-    }
 
-    public void clickHomeButton() {
-        getHomeButton().click();
+
+    // Scroll down the page
+    private void scrollDown() {
+        Actions actions = new Actions(driver);
+        List<WebElement> likeButtons = getLikeButtons();
+
+        // Scroll down the page
+        actions.moveToElement(likeButtons.get(likeButtons.size() - 1)).perform();
+
+        // Use an explicit wait for new content to load
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Use Duration.ofSeconds
+
+        try {
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//span[@class='xp7jhwk']"), likeButtons.size()));
+        } catch (org.openqa.selenium.TimeoutException e) {
+            // Handle the timeout exception if needed
+        }
     }
 
     public void scrollAndLikePosts() {
@@ -36,50 +55,25 @@ public class MainPage extends BasePage {
         int maxScrolls = 10; // Set the maximum number of scrolls
         int maxLikes = 20;   // Set the maximum number of likes
 
+        Duration timeoutDuration = Duration.ofSeconds(10);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutDuration);
+
         while (maxScrolls > 0 && maxLikes > 0) {
             List<WebElement> likeButtons = getLikeButtons();
             int currentLikeCount = likeButtons.size();
 
-            // Scroll down the page if new like buttons are not visible
-            if (currentLikeCount == initialLikeCount) {
-                Actions actions = new Actions(driver);
-                actions.moveToElement(likeButtons.get(likeButtons.size() - 1)).perform();
-
-                // Wait for some time to allow new content to load
-                try {
-                    Thread.sleep(2000); // Adjust sleep time as needed
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            if (currentLikeCount > 0) {
+                for (int i = initialLikeCount; i < currentLikeCount && maxLikes > 0; i++) {
+                    likeButtons.get(i).click();
+                    // Use an explicit wait for the like action to complete (if needed)
+                    maxLikes--;
                 }
+                initialLikeCount = currentLikeCount;
+            } else {
+                // Scroll down the page if no new like buttons are visible
+                scrollDown();
                 maxScrolls--;
-                continue;
             }
-
-            // Like the new posts
-            for (int i = initialLikeCount; i < currentLikeCount && maxLikes > 0; i++) {
-                likeButtons.get(i).click();
-                // Wait for a short time after clicking the like button
-                try {
-                    Thread.sleep(1000); // Adjust sleep time as needed
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                maxLikes--;
-            }
-
-            initialLikeCount = currentLikeCount;
-
-            // Scroll down further and repeat the process
-            Actions actions = new Actions(driver);
-            actions.moveToElement(likeButtons.get(likeButtons.size() - 1)).perform();
-
-            // Wait for some time to allow new content to load
-            try {
-                Thread.sleep(2000); // Adjust sleep time as needed
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            maxScrolls--;
         }
     }
 }
