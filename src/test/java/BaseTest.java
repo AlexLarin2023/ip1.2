@@ -14,7 +14,7 @@ public class BaseTest {
         username = "Alex_kolesnyk_";
         password = "Family2022!";
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\alexander.anderson\\IdeaProjects\\InstaProject\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
 
         // Set Chrome options to disable notifications
         ChromeOptions options = new ChromeOptions();

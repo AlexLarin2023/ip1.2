@@ -7,7 +7,14 @@ public class Stories extends BasePage {
     public Stories(WebDriver driver) {
         super(driver);
     }
+    private WebElement getInstagramButton() {
+        By instagramButtonBy = By.xpath("//*[@aria-label='Instagram']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(instagramButtonBy));
+    }
 
+    public void clickInstagramButton() {
+        getInstagramButton().click();
+    }
     // Get the first story element
     private WebElement getFirstStory() {
         By firstStoryBy = By.xpath("//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o']");
@@ -38,7 +45,7 @@ public class Stories extends BasePage {
             likeButton.click();
             // Wait for a short time after clicking the like button
             try {
-                Thread.sleep(1000); // Adjust sleep time as needed
+                Thread.sleep(10000); // Adjust sleep time as needed
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
