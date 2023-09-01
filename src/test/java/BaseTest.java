@@ -16,6 +16,7 @@ public class BaseTest {
 //        username = "Alex_kolesnyk_";
 //        password = "Family2022!";
 
+        // this data for now
         username = "odessa_mma_team_";
         password = "Mittswork2023!";
 
