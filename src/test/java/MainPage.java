@@ -20,15 +20,7 @@ public class MainPage extends BasePage {
     }
 
     private List<WebElement> getLikeButtons() {
-        return driver.findElements(By.xpath("//span[@class='xp7jhwk']"));
-    }
-    private WebElement getHomeButton() {
-        By homeButtonBy = By.xpath("//*[@aria-label='Home']");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(homeButtonBy));
-    }
-
-    public void clickHomeButton() {
-        getHomeButton().click();
+        return driver.findElements(By.xpath("//*[@class='xp7jhwk']"));
     }
 
     public void scrollAndLikePosts() {
@@ -37,6 +29,9 @@ public class MainPage extends BasePage {
         int maxLikes = 20;   // Set the maximum number of likes
 
         while (maxScrolls > 0 && maxLikes > 0) {
+            // Wait for the like button to be visible before proceeding
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='xp7jhwk']")));
+
             List<WebElement> likeButtons = getLikeButtons();
             int currentLikeCount = likeButtons.size();
 
@@ -44,26 +39,16 @@ public class MainPage extends BasePage {
             if (currentLikeCount == initialLikeCount) {
                 Actions actions = new Actions(driver);
                 actions.moveToElement(likeButtons.get(likeButtons.size() - 1)).perform();
-
-                // Wait for some time to allow new content to load
-                try {
-                    Thread.sleep(2000); // Adjust sleep time as needed
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 maxScrolls--;
                 continue;
             }
 
             // Like the new posts
             for (int i = initialLikeCount; i < currentLikeCount && maxLikes > 0; i++) {
-                likeButtons.get(i).click();
-                // Wait for a short time after clicking the like button
-                try {
-                    Thread.sleep(1000); // Adjust sleep time as needed
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                WebElement likeButton = likeButtons.get(i);
+
+                likeButton.click();
+
                 maxLikes--;
             }
 
@@ -73,9 +58,10 @@ public class MainPage extends BasePage {
             Actions actions = new Actions(driver);
             actions.moveToElement(likeButtons.get(likeButtons.size() - 1)).perform();
 
-            // Wait for some time to allow new content to load
+//            // Wait for some time to allow new content to load
+
             try {
-                Thread.sleep(2000); // Adjust sleep time as needed
+                Thread.sleep(3000); // Adjust sleep time as needed
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

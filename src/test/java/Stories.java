@@ -102,12 +102,7 @@ public class Stories extends BasePage {
         WebElement likeButton = getLikeButton();
         if (likeButton.isDisplayed()) {
             likeButton.click();
-            // Wait for a short time after clicking the like button
-            try {
-                Thread.sleep(5000); // Adjust sleep time as needed
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         } else {
             System.out.println("Like button not found.");
         }
