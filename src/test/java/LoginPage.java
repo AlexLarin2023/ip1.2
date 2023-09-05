@@ -9,16 +9,19 @@ public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-    private WebElement getEmailField(){
+    // Modified to use dynamic wait time for the email field
+    private WebElement getEmailField() {
         By emailBy = By.xpath("//input[@aria-label='Phone number, username, or email']");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailBy));
-        return driver.findElement(emailBy);
+        return waitAndReturnElement(emailBy, 30); // Adjust the max wait time as needed
     }
-    private WebElement getPasswordField(){
+
+    private WebElement getPasswordField() {
         return driver.findElement(By.xpath("//input[@aria-label='Password']"));
     }
+
+    // Modified to use dynamic wait time for the login button
     private WebElement getLoginButton() {
-        return driver.findElement(By.xpath("//button[@class='_acan _acap _acas _aj1-']"));
+        return waitAndReturnElement(By.xpath("//button[@class='_acan _acap _acas _aj1-']"), 30); // Adjust the max wait time as needed
     }
 
     public MainPage loginToApp(String username, String password){
