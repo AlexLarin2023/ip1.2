@@ -13,12 +13,12 @@ public class BaseTest {
     public void startUp() {
 
         // I keep this data for later
-        username = "Alex_kolesnyk_";
-        password = "Family2022!";
+//        username = "Alex_kolesnyk_";
+//        password = "Family2022!";
 
         // this data for now
-//        username = "odessa_mma_team_";
-//        password = "Mittswork2023!";
+        username = "odessa_mma_team_";
+        password = "Mittswork2023!";
 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\alexander.anderson\\IdeaProjects\\InstaProject\\chromedriver.exe");
 
@@ -30,9 +30,9 @@ public class BaseTest {
         driver = new ChromeDriver(options);
     }
 
-//    @AfterMethod
-//    public void tearDown() throws InterruptedException {
-//        Thread.sleep(3000);
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(3000);
+        driver.quit();
+    }
 }

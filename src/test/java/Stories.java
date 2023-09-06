@@ -102,7 +102,6 @@ public class Stories extends BasePage {
         WebElement likeButton = getLikeButton();
         if (likeButton.isDisplayed()) {
             likeButton.click();
-
         } else {
             System.out.println("Like button not found.");
         }

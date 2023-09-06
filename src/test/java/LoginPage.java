@@ -2,26 +2,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 
 public class LoginPage extends BasePage{
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-    // Modified to use dynamic wait time for the email field
-    private WebElement getEmailField() {
+    private WebElement getEmailField(){
         By emailBy = By.xpath("//input[@aria-label='Phone number, username, or email']");
-        return waitAndReturnElement(emailBy, 30); // Adjust the max wait time as needed
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailBy));
+        return driver.findElement(emailBy);
     }
-
-    private WebElement getPasswordField() {
+    private WebElement getPasswordField(){
         return driver.findElement(By.xpath("//input[@aria-label='Password']"));
     }
-
-    // Modified to use dynamic wait time for the login button
     private WebElement getLoginButton() {
-        return waitAndReturnElement(By.xpath("//button[@class='_acan _acap _acas _aj1-']"), 30); // Adjust the max wait time as needed
+        return driver.findElement(By.xpath("//button[@class='_acan _acap _acas _aj1-']"));
     }
 
     public MainPage loginToApp(String username, String password){

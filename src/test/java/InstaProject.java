@@ -13,8 +13,8 @@ public class InstaProject extends BaseTest {
         // Perform login and get to the main page
         MainPage mainPage = loginPage.loginToApp(username, password);
 
-//        // Click the "Save Your Login Info" button on the main page
-//        mainPage.clickSaveYourLoginInfo();
+        // Click the "Save Your Login Info" button on the main page
+        mainPage.clickSaveYourLoginInfo();
 
         // Call the scrollAndLikePosts method to start scrolling and liking posts
         mainPage.scrollAndLikePosts();
@@ -31,21 +31,21 @@ public class InstaProject extends BaseTest {
         // Perform login and get to the main page
         MainPage mainPage = loginPage.loginToApp(username, password);
 
-//        // Click the "Save Your Login Info" button on the main page
-//        mainPage.clickSaveYourLoginInfo();
+        // Click the "Save Your Login Info" button on the main page
+        mainPage.clickSaveYourLoginInfo();
 
-            // Create an instance of the Stories page (only once per loop iteration)
-            Stories stories = new Stories(driver);
+        // Create an instance of the Stories page (only once per loop iteration)
+        Stories stories = new Stories(driver);
 
 
-            // Click the Second story on the Stories page
-            stories.clickSecondStory();
+        // Click the Second story on the Stories page
+        stories.clickSecondStory();
 
-            // Like the current story
-            stories.clickLikeButton();
+        // Like the current story
+        stories.clickLikeButton();
 
-            // Click the "Instagram" button on the main page
-            stories.clickCloseButton();
+        // Click the "Instagram" button on the main page
+        stories.clickCloseButton();
 
 
         // Click the third story on the Stories page
@@ -78,6 +78,5 @@ public class InstaProject extends BaseTest {
         stories.clickCloseButton();
 
 
-        }
     }
-
+}
