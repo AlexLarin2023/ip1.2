@@ -32,4 +32,46 @@ public class Stories extends BasePage {
             System.out.println("Like button not found.");
         }
     }
+
+
+
+
+
+    private WebElement getSecondImageOnRight() {
+        By secondImageOnRightBy = By.xpath("(//div[@class='_ac07'])[2]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(secondImageOnRightBy));
+    }
+
+    public void clickSecondImageOnRight() {
+        getSecondImageOnRight().click();
+    }
+
+     private WebElement getThirdImageOnRight() {
+        By thirdImageOnRightBy = By.xpath("(//div[@class='_ac07'])[3]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(thirdImageOnRightBy));
+    }
+
+    public void clickThirdImageOnRight() {
+        getThirdImageOnRight().click();
+    }
+
+    private WebElement getFourthImageOnRight() {
+        By fourthImageOnRightBy = By.xpath("(//div[@class='_ac07'])[4]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(fourthImageOnRightBy));
+    }
+
+    public void clickFourthImageOnRight() {
+        getFourthImageOnRight().click();
+    }
+
+
+     private WebElement getFifthImageOnRight() {
+        By fifthImageOnRightBy = By.xpath("(//div[@class='_ac07'])[5]");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(fifthImageOnRightBy));
+    }
+
+    public void clickFifthImageOnRight() {
+        getFifthImageOnRight().click();
+    }
+
 }
