@@ -7,6 +7,8 @@ public class Stories extends BasePage {
     public Stories(WebDriver driver) {
         super(driver);
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
     private WebElement getCloseButton() {
         By closeButtonBy = By.xpath("//*[@aria-label='Close']");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(closeButtonBy));
@@ -16,7 +18,7 @@ public class Stories extends BasePage {
         getCloseButton().click();
     }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Get the like button element of a story
     private WebElement getLikeButton() {
         By likeButtonBy = By.xpath("//div[@class='_abx4']");
@@ -32,46 +34,19 @@ public class Stories extends BasePage {
             System.out.println("Like button not found.");
         }
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-    private WebElement getSecondImageOnRight() {
-        By secondImageOnRightBy = By.xpath("(//div[@class='_ac07'])[2]");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(secondImageOnRightBy));
+    private WebElement getRightArrow() {
+        By rightArrowBy = By.xpath("//div[@class=' _9zm2']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(rightArrowBy));
     }
 
-    public void clickSecondImageOnRight() {
-        getSecondImageOnRight().click();
+    public void clickRightArrow(int timesToClick) {
+        for (int i = 0; i < timesToClick; i++) {
+            getRightArrow().click();
+        }
     }
 
-     private WebElement getThirdImageOnRight() {
-        By thirdImageOnRightBy = By.xpath("(//div[@class='_ac07'])[3]");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(thirdImageOnRightBy));
-    }
-
-    public void clickThirdImageOnRight() {
-        getThirdImageOnRight().click();
-    }
-
-    private WebElement getFourthImageOnRight() {
-        By fourthImageOnRightBy = By.xpath("(//div[@class='_ac07'])[4]");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(fourthImageOnRightBy));
-    }
-
-    public void clickFourthImageOnRight() {
-        getFourthImageOnRight().click();
-    }
-
-
-     private WebElement getFifthImageOnRight() {
-        By fifthImageOnRightBy = By.xpath("(//div[@class='_ac07'])[5]");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(fifthImageOnRightBy));
-    }
-
-    public void clickFifthImageOnRight() {
-        getFifthImageOnRight().click();
-    }
 
 }
