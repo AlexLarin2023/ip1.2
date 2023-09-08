@@ -19,9 +19,7 @@ public class MainPage extends BasePage {
         getSaveYourLoginInfoButton().click();
     }
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     // Get the second story element
     private WebElement getSecondStory() {
@@ -40,10 +38,7 @@ public class MainPage extends BasePage {
         }
     }
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     private List<WebElement> getLikeMainPageButtons() {
         return driver.findElements(By.xpath("//span[@class='xp7jhwk']"));
@@ -91,63 +86,4 @@ public class MainPage extends BasePage {
             maxScrolls--;
         }
     }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//        // Get the Third story element
-//        private WebElement getThirdStory() {
-//            By thirdStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[3]");
-//            return wait.until(ExpectedConditions.visibilityOfElementLocated(thirdStoryBy));
-//        }
-//
-//        // Click the Third story
-//        public void clickThirdStory() {
-//            WebElement thirdStory = getThirdStory();
-//            if (thirdStory.isDisplayed()) {
-//                thirdStory.click();
-//                // You can add waits here if necessary
-//            } else {
-//                System.out.println("Third story button not found.");
-//            }
-//        }
-//
-//
-//
-//        // Get the fourth story element
-//        private WebElement getFourthStory() {
-//            By fourthStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[4]");
-//            return wait.until(ExpectedConditions.visibilityOfElementLocated(fourthStoryBy));
-//        }
-//
-//        // Click the fourth story
-//        public void clickFourthStory() {
-//            WebElement fourthStory = getFourthStory();
-//            if (fourthStory.isDisplayed()) {
-//                fourthStory.click();
-//                // You can add waits here if necessary
-//            } else {
-//                System.out.println("Fourth story button not found.");
-//            }
-//        }
-//
-//
-//        // Get the fifth story element
-//        private WebElement getFifthStory() {
-//            By fifthStoryBy = By.xpath("(//div[@class='x9f619 x1lliihq x6ikm8r x10wlt62 x1n2onr6 x2b8uid xlyipyv xuxw1ft x1yf5rgg xhikscq xg83lxy x1h0ha7o'])[5]");
-//            return wait.until(ExpectedConditions.visibilityOfElementLocated(fifthStoryBy));
-//        }
-//
-//        // Click the fifth story
-//        public void clickFifthStory() {
-//            WebElement fifthStory = getFifthStory();
-//            if (fifthStory.isDisplayed()) {
-//                fifthStory.click();
-//                // You can add waits here if necessary
-//            } else {
-//                System.out.println("Fifth story button not found.");
-//            }
-//        }
-
-
-
-    }
+}

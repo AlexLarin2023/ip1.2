@@ -16,37 +16,45 @@ public class BaseTest {
     protected Stories stories;
 
 
+    @BeforeSuite
+    public void beforeSuite() {
+        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
+    }
+
+
 //    @BeforeSuite
 //    public void beforeSuite() {
 //        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
 //    }
 
+
+
     @BeforeMethod
     public void startUp() {
 
-        // Initialize SafariDriver
-        driver = new SafariDriver();
+
+                                            // SafariDriver
+//        // Initialize SafariDriver
+//        driver = new SafariDriver();
 
 
+        // Set Chrome options to disable notifications
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
 
-//        // Set Chrome options to disable notifications
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-notifications");
-//
-//        // Pass the options when initializing ChromeDriver
-//        driver = new ChromeDriver(options);
+        // Pass the options when initializing ChromeDriver
+        driver = new ChromeDriver(options);
 
-
-
+        // Maximize screen
         driver.manage().window().maximize();
 
-        // I keep this data for later
-        username = "Alex_kolesnyk_";
-        password = "Family2022!";
+//        // I keep this data for later
+//        username = "Alex_kolesnyk_";
+//        password = "Family2022!";
 
 //         this data for now
-//        username = "odessa_mma_team_";
-//        password = "Mittswork2023!";
+        username = "odessa_mma_team_";
+        password = "Mittswork2023!";
 
 
         // Initialize the login page and navigate to it

@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,17 +9,6 @@ public class Stories extends BasePage {
         super(driver);
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-    private WebElement getCloseButton() {
-        By closeButtonBy = By.xpath("//*[@aria-label='Close']");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(closeButtonBy));
-    }
-
-    public void clickCloseButton() {
-        getCloseButton().click();
-    }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Get the like button element of a story
     private WebElement getLikeButton() {
         By likeButtonBy = By.xpath("//div[@class='_abx4']");
@@ -36,17 +26,37 @@ public class Stories extends BasePage {
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    private WebElement getShopNowButton() {
+        String loginInfoXPath = "_aacl _aaco _aacw _aad2 _aad6 _aadb";
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginInfoXPath)));
+    }
 
+
+    public void clickShopNowButton() {
+        getShopNowButton().click();
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Get the right arrow element
     private WebElement getRightArrow() {
         By rightArrowBy = By.xpath("//div[@class=' _9zm2']");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(rightArrowBy));
     }
 
+    // Click the right arrow a specified number of times
     public void clickRightArrow(int timesToClick) {
         for (int i = 0; i < timesToClick; i++) {
             getRightArrow().click();
         }
     }
 
-
+    // Perform the scenario of clicking right arrow 5 times and then clicking like story button once
+    public void swipeFiveTimesAndLikeOneTime(int repeatCount) {
+        for (int i = 0; i < repeatCount; i++) {
+            clickRightArrow(5); // Click right arrow 5 times
+            clickLikeStoryButton(); // Click like story button 1 time
+        }
+    }
 }
