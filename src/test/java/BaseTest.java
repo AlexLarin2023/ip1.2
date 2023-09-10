@@ -14,8 +14,8 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected MainPage mainPage;
     protected Stories stories;
-    protected FriendsProfile friendsProfile;
-    protected MyProfilePage myProfilePage;
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -78,8 +78,11 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         loginPage.open();
 
+        mainPage = new MainPage(driver);
+
         // Perform login and get to the main page
         mainPage = loginPage.loginToApp(username, password);
+
 
         // Click the "Save Your Login Info" button on the main page
         mainPage.clickSaveYourLoginInfo();
@@ -89,9 +92,9 @@ public class BaseTest {
         mainPage.clickNotificationButton();
 
 
-        myProfilePage = new MyProfilePage(driver);
-
-        friendsProfile = new FriendsProfile(driver);
+//        myProfilePage = new MyProfilePage(driver);
+//
+//        friendsProfile = new FriendsProfile(driver);
 
         // Initialize the Stories page (only once)
         stories = new Stories(driver);

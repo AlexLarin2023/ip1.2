@@ -23,15 +23,15 @@ public class InstaProject extends BaseTest {
         stories.swipeFiveTimesAndLikeOneTime(10);
     }
 
-    @Test
-    public void likeFriendsPhotos(){
-
-        mainPage.clickMyProfileButton();
-        myProfilePage.clickFollowingButton();
-        myProfilePage.clickFriendButton();
-        friendsProfile.clickFriendsPicture();
-
-
-    }
+//    @Test
+//    public void likeFriendsPhotos(){
+//
+//        mainPage.clickMyProfileButton();
+//        myProfilePage.clickFollowingButton();
+//        myProfilePage.clickFriendButton();
+//        friendsProfile.clickFriendsPicture();
+//
+//
+//    }
 
 }

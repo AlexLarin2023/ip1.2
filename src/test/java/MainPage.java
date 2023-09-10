@@ -88,6 +88,9 @@ public class MainPage extends BasePage {
     }
 //////////////////////////////////////////////////////////////////////////////////////
 
+
+    // Only sor Safari
+
     private WebElement getNotificationButton() {
         String notificationButtonXPath = "//button[@class='_a9-- _a9_1']";
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(notificationButtonXPath)));
@@ -100,16 +103,14 @@ public class MainPage extends BasePage {
 
 //////////////////////////////////////////////////////////////////////////////////////
 
-
-    private WebElement getMyProfileButton() {
-        String myProfileButtonXPath = "//img[@class='xpdipgo x6umtig x1b1mbwd xaqea5y xav7gou xk390pu x5yr21d xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x11njtxf xh8yej3']";
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(myProfileButtonXPath)));
-    }
-
-    // Click the "MyProfileButton" button
-    public void clickMyProfileButton() {
-        getMyProfileButton().click();
-    }
-
-
+//
+//    private WebElement getMyProfileButton() {
+//        String myProfileButtonXPath = "//img[@class='xpdipgo x6umtig x1b1mbwd xaqea5y xav7gou xk390pu x5yr21d xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x11njtxf xh8yej3']";
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(myProfileButtonXPath)));
+//    }
+//
+//    // Click the "MyProfileButton" button
+//    public void clickMyProfileButton() {
+//        getMyProfileButton().click();
+//    }
 }
