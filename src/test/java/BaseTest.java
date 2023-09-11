@@ -21,17 +21,17 @@ public class BaseTest {
 
     //for work computer
 
-//    @BeforeSuite
-//    public void beforeSuite() {
-//        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
-//    }
+    @BeforeSuite
+    public void beforeSuite() {
+        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
+    }
 
     // for home computer
 
-    @BeforeSuite
-    public void beforeSuite() {
-        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
-    }
+//    @BeforeSuite
+//    public void beforeSuite() {
+//        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
+//    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,9 +40,9 @@ public class BaseTest {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-                                             //SafariDriver
-        // Initialize SafariDriver
-        driver = new SafariDriver();
+//                                             //SafariDriver
+//        // Initialize SafariDriver
+//        driver = new SafariDriver();
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -52,10 +52,10 @@ public class BaseTest {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-//                                             //// ChromeDriver
-//
-//        // Pass the options when initializing ChromeDriver
-//        driver = new ChromeDriver(options);
+                                             //// ChromeDriver
+
+        // Pass the options when initializing ChromeDriver
+        driver = new ChromeDriver(options);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -88,8 +88,8 @@ public class BaseTest {
         mainPage.clickSaveYourLoginInfo();
 
 
-        // Only for Safari
-        mainPage.clickNotificationButton();
+//        // Only for Safari
+//        mainPage.clickNotificationButton();
 
 
 //        myProfilePage = new MyProfilePage(driver);
@@ -101,9 +101,9 @@ public class BaseTest {
 
 
     }
-    @AfterMethod
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() throws InterruptedException {
+//        Thread.sleep(3000);
+//        driver.quit();
+//    }
 }

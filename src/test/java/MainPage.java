@@ -38,6 +38,7 @@ public class MainPage extends BasePage {
         }
     }
 
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private List<WebElement> getLikeMainPageButtons() {
@@ -46,10 +47,10 @@ public class MainPage extends BasePage {
 
     public void scrollAndLikePosts() {
         int initialLikeCount = 0;
-        int maxScrolls = 30; // Set the maximum number of scrolls
-        int maxLikes = 30;   // Set the maximum number of likes
 
-        while (maxScrolls > 0 && maxLikes > 0) {
+        int maxLikes = 20;   // Set the maximum number of likes
+
+        while ( maxLikes > 0) {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='xp7jhwk']")));
 
             List<WebElement> likeButtons = getLikeMainPageButtons();
@@ -60,7 +61,6 @@ public class MainPage extends BasePage {
                 Actions actions = new Actions(driver);
                 actions.moveToElement(likeButtons.get(likeButtons.size() - 1)).perform();
 
-                maxScrolls--;
                 continue;
             }
 
@@ -83,23 +83,22 @@ public class MainPage extends BasePage {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            maxScrolls--;
         }
     }
 //////////////////////////////////////////////////////////////////////////////////////
 
 
-    // Only sor Safari
-
-    private WebElement getNotificationButton() {
-        String notificationButtonXPath = "//button[@class='_a9-- _a9_1']";
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(notificationButtonXPath)));
-    }
-
-    // Click the "Notification" button
-    public void clickNotificationButton() {
-        getNotificationButton().click();
-    }
+//                                        // Only sor Safari
+//
+//    private WebElement getNotificationButton() {
+//        String notificationButtonXPath = "//button[@class='_a9-- _a9_1']";
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(notificationButtonXPath)));
+//    }
+//
+//    // Click the "Notification" button
+//    public void clickNotificationButton() {
+//        getNotificationButton().click();
+//    }
 
 //////////////////////////////////////////////////////////////////////////////////////
 
