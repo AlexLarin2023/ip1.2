@@ -24,20 +24,6 @@ public class Stories extends BasePage {
             System.out.println("Like button not found.");
         }
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//    private WebElement getShopNowButton() {
-//        String loginInfoXPath = "_aacl _aaco _aacw _aad2 _aad6 _aadb";
-//        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginInfoXPath)));
-//    }
-//
-//
-//    public void clickShopNowButton() {
-//        getShopNowButton().click();
-//    }
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Get the right arrow element
     private WebElement getRightArrow() {
@@ -60,3 +46,22 @@ public class Stories extends BasePage {
         }
     }
 }
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//    private WebElement getShopNowButton() {
+//        String loginInfoXPath = "_aacl _aaco _aacw _aad2 _aad6 _aadb";
+//        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginInfoXPath)));
+//    }
+//
+//
+//    public void clickShopNowButton() {
+//        getShopNowButton().click();
+//    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
