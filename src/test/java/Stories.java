@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -5,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Stories extends BasePage {
+    private static Logger logger = LogManager.getLogger(Stories.class);
     public Stories(WebDriver driver) {
         super(driver);
     }
@@ -40,9 +43,15 @@ public class Stories extends BasePage {
 
     // Perform the scenario of clicking right arrow 5 times and then clicking like story button once
     public void swipeFiveTimesAndLikeOneTime(int repeatCount) {
+
+        logger.info("Performing swipe and like scenario " + repeatCount + " times.");
+
         for (int i = 0; i < repeatCount; i++) {
             clickRightArrow(5); // Click right arrow 5 times
+            logger.info("Swiped right 5 times.");
+
             clickLikeStoryButton(); // Click like story button 1 time
+            logger.info("Clicked the 'Like' button.");
         }
     }
 }

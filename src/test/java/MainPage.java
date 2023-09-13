@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -5,6 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class MainPage extends BasePage {
+
+
+    // Put Logger
+    private static Logger logger = LogManager.getLogger(MainPage.class);
 
 
     public MainPage(WebDriver driver) {
@@ -51,6 +57,10 @@ public class MainPage extends BasePage {
     }
 
     public void scrollAndLikePosts() {
+
+        // Log the start of the method
+        logger.debug("scrollAndLikePosts started.");
+
         int initialLikeCount = 0;
         int maxLikes = 20;   // Set the maximum number of likes
 
@@ -90,6 +100,9 @@ public class MainPage extends BasePage {
                 e.printStackTrace();
             }
         }
+
+        // Log the completion of the method along with the liked post count
+        logger.info("scrollAndLikePosts completed. Liked " + getActualLikedCount() + " posts.");
     }
 
     // Add a method to get the actual number of liked posts
