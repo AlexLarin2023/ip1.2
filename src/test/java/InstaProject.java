@@ -1,9 +1,25 @@
+import listeners.MyRetry;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class InstaProject extends BaseTest {
+
+
+
+        private int count = 0;
+        @Test(retryAnalyzer = MyRetry.class) //только к определенному тесту добавлю (retryAnalyzer = MyRetry.class)
+        public void flakyTest(){
+            if(count<=2){
+                count++;
+                Assert.assertTrue(false);
+            }
+            Assert.assertTrue(true);
+        }
+
+
+
 
     @Test
     public void likePosts() {
