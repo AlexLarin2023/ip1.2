@@ -1,10 +1,13 @@
+import listeners.GetScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -16,22 +19,21 @@ public class BaseTest {
     protected Stories stories;
 
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 
     //for work computer
 
-//    @BeforeSuite
-//    public void beforeSuite() {
-//        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
-//    }
+    @BeforeSuite
+    public void beforeSuite() {
+        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
+    }
 
     // for home computer
 
-    @BeforeSuite
-    public void beforeSuite() {
-        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
-    }
+//    @BeforeSuite
+//    public void beforeSuite() {
+//        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
+//    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -40,9 +42,9 @@ public class BaseTest {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-                                             //SafariDriver
-        // Initialize SafariDriver
-        driver = new SafariDriver();
+//                                             //SafariDriver
+//        // Initialize SafariDriver
+//        driver = new SafariDriver();
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -52,10 +54,10 @@ public class BaseTest {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-                                             //// ChromeDriver
+                                             // ChromeDriver
 
-//        // Pass the options when initializing ChromeDriver
-//        driver = new ChromeDriver(options);
+        // Pass the options when initializing ChromeDriver
+        driver = new ChromeDriver(options);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -87,10 +89,12 @@ public class BaseTest {
         // Click the "Save Your Login Info" button on the main page
         mainPage.clickSaveYourLoginInfo();
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // Only for Safari
-        mainPage.clickNotificationButton();
+                                                        //        // Only for Safari
+//        mainPage.clickNotificationButton();
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //        myProfilePage = new MyProfilePage(driver);
 //
@@ -102,8 +106,14 @@ public class BaseTest {
 
     }
     @AfterMethod
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
+
+    // Added a screenshot
+// качестве аргумента должен подать iTestResult
+    public void tearDown(ITestResult iTestResult) throws InterruptedException {
+        if (iTestResult.getStatus()==iTestResult.FAILURE){
+            GetScreenshot.capture(driver,iTestResult.getName());
+        }
+        System.out.println("In the after method - > Driver will be killed soon");
         driver.quit();
     }
 }
