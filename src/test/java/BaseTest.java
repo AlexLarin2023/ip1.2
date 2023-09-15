@@ -21,19 +21,19 @@ public class BaseTest {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-//    //for work computer
-//
-//    @BeforeSuite
-//    public void beforeSuite() {
-//        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
-//    }
-
-    // for home computer
+    //for work computer
 
     @BeforeSuite
     public void beforeSuite() {
-        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
     }
+
+    // for home computer
+
+//    @BeforeSuite
+//    public void beforeSuite() {
+//        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
+//    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,24 +42,23 @@ public class BaseTest {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-                                             //SafariDriver
-        // Initialize SafariDriver
-        driver = new SafariDriver();
+//                                             //SafariDriver
+//        // Initialize SafariDriver
+//        driver = new SafariDriver();
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
         // Set Chrome options to disable notifications
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");  // Run in headless mode
-        options.addArguments("--disable-notifications");
+        options.addArguments("--headless", "--disable-notifications");
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-                                             // ChromeDriver
+//        ChromeDriver
 
-//        // Pass the options when initializing ChromeDriver
-//        driver = new ChromeDriver(options);
+        // Pass the options when initializing ChromeDriver
+        driver = new ChromeDriver(options);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -70,13 +69,13 @@ public class BaseTest {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 //        // I keep this data for later
-//        username = "Alex_kolesnyk_";
-//        password = "Family2022!";
+        username = "Alex_kolesnyk_";
+        password = "Family2022!";
 
 
-//         this data for now
-        username = "odessa_mma_team_";
-        password = "Mittswork2023!";
+////         this data for now
+//        username = "odessa_mma_team_";
+//        password = "Mittswork2023!";
 
 
         // Initialize the login page and navigate to it
@@ -94,8 +93,8 @@ public class BaseTest {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                                                                // Only for Safari
-        mainPage.clickNotificationButton();
+//                                                                // Only for Safari
+//        mainPage.clickNotificationButton();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -108,15 +107,26 @@ public class BaseTest {
 
 
     }
-    @AfterMethod
 
-    // Added a screenshot
-// качестве аргумента должен подать iTestResult
-    public void tearDown(ITestResult iTestResult) throws InterruptedException {
-        if (iTestResult.getStatus()==iTestResult.FAILURE){
-            GetScreenshot.capture(driver,iTestResult.getName());
-        }
-        System.out.println("In the after method - > Driver will be killed soon");
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                                    // without the head
+    @AfterMethod
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(3000);
         driver.quit();
     }
+
 }
+
+//                                // with the head (for screenshots)
+//    @AfterMethod
+//// качестве аргумента должен подать iTestResult
+//    public void tearDown(ITestResult iTestResult) throws InterruptedException {
+//        if (iTestResult.getStatus()==iTestResult.FAILURE){
+//            GetScreenshot.capture(driver,iTestResult.getName());
+//        }
+//        Thread.sleep(3000);
+//        driver.quit();
+//    }
+//}
