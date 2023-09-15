@@ -27,7 +27,6 @@
                 <methods>
                     <!-- 6)
                                 два способа пропустить  тесты: или через testng.xml или напрямую в файле   -->
-                    <include name="flakyTest"/>
                     <include name="likePosts"/>
                     <include name="likeStoriesSwipe"/>
 

@@ -21,19 +21,19 @@ public class BaseTest {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-    //for work computer
-
-    @BeforeSuite
-    public void beforeSuite() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
-    }
+//    //for work computer
+//
+//    @BeforeSuite
+//    public void beforeSuite() {
+//        System.setProperty("webdriver.chrome.driver", "C:/Users/alexander.anderson/IdeaProjects/InstaProject/chromedriver.exe");
+//    }
 
     // for home computer
 
-//    @BeforeSuite
-//    public void beforeSuite() {
-//        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
-//    }
+    @BeforeSuite
+    public void beforeSuite() {
+        System.setProperty("webdriver.chrome.driver", "/Users/oleksii_kolesnik/IdeaProjects/InstaProject/chromedriver");
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,38 +42,41 @@ public class BaseTest {
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//                                             //SafariDriver
-//        // Initialize SafariDriver
-//        driver = new SafariDriver();
+                                             //SafariDriver
+        // Initialize SafariDriver
+        driver = new SafariDriver();
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
         // Set Chrome options to disable notifications
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // Run in headless mode
         options.addArguments("--disable-notifications");
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
                                              // ChromeDriver
 
-        // Pass the options when initializing ChromeDriver
-        driver = new ChromeDriver(options);
+//        // Pass the options when initializing ChromeDriver
+//        driver = new ChromeDriver(options);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-        // Maximize screen
+//        // Maximize screen
         driver.manage().window().maximize();
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-        // I keep this data for later
-        username = "Alex_kolesnyk_";
-        password = "Family2022!";
+//        // I keep this data for later
+//        username = "Alex_kolesnyk_";
+//        password = "Family2022!";
 
 
-////         this data for now
-//        username = "odessa_mma_team_";
-//        password = "Mittswork2023!";
+//         this data for now
+        username = "odessa_mma_team_";
+        password = "Mittswork2023!";
 
 
         // Initialize the login page and navigate to it
@@ -91,8 +94,8 @@ public class BaseTest {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                                                        //        // Only for Safari
-//        mainPage.clickNotificationButton();
+                                                                // Only for Safari
+        mainPage.clickNotificationButton();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

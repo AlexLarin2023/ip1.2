@@ -113,15 +113,15 @@ public class MainPage extends BasePage {
 
                                         // Only sor Safari
 
-//    private WebElement getNotificationButton() {
-//        String notificationButtonXPath = "//button[@class='_a9-- _a9_1']";
-//        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(notificationButtonXPath)));
-//    }
-//
-//    // Click the "Notification" button
-//    public void clickNotificationButton() {
-//        getNotificationButton().click();
-//    }
+    private WebElement getNotificationButton() {
+        String notificationButtonXPath = "//button[@class='_a9-- _a9_1']";
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(notificationButtonXPath)));
+    }
+
+    // Click the "Notification" button
+    public void clickNotificationButton() {
+        getNotificationButton().click();
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////
 

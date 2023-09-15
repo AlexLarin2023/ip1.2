@@ -8,20 +8,7 @@ public class InstaProject extends BaseTest {
 
 
 
-        private int count = 0;
-        @Test(retryAnalyzer = MyRetry.class) //только к определенному тесту добавлю (retryAnalyzer = MyRetry.class)
-        public void flakyTest(){
-            if(count<=2){
-                count++;
-                Assert.assertTrue(false);
-            }
-            Assert.assertTrue(true);
-        }
-
-
-
-
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void likePosts() {
 
         // Call the scrollAndLikePosts method to start scrolling and liking posts
@@ -34,7 +21,7 @@ public class InstaProject extends BaseTest {
         int expectedMaxLikes = 20; // Set the expected maximum number of likes
         Assert.assertEquals(actualLikes, expectedMaxLikes, "The actual number of likes does not match the expected maximum likes.");
     }
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void likeStoriesSwipe() {
 
         // Click the Second story on the Stories page
